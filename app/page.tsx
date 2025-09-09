@@ -1,26 +1,11 @@
-import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
-
 export default function Home() {
-  const allPostsData = getSortedPostsData();
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h1 className="text-4xl font-bold">Blog</h1>
-        <ul className="list-none p-0 m-0">
-          {allPostsData.map(({ id, date, title }) => (
-            <li className="mb-4" key={id}>
-              <Link href={`/posts/${id}`} className="text-xl font-semibold text-blue-600 hover:underline">
-                {title}
-              </Link>
-              <br />
-              <small className="text-gray-500">
-                {date}
-              </small>
-            </li>
-          ))}
-        </ul>
-      </main>
-    </div>
+    <main className="h-full">
+      <div className="relative w-full h-full bg-black">
+        <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-10 bg-[url('/space-portfolio/background.png')]"></div>
+        <div className="absolute w-full h-[80%] bottom-[-30%] left-0 bg-contain bg-bottom bg-no-repeat z-20 bg-[url('/space-portfolio/earth.png')]"></div>
+        <div className="absolute w-[150px] h-[150px] bottom-[35%] left-1/2 -translate-x-1/2 bg-contain bg-no-repeat z-30 bg-[url('/space-portfolio/astronaut.png')]"></div>
+      </div>
+    </main>
   );
 }
